@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="http" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="text/plain" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+    </queries>
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyFirstApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".WelcomePage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SnackbarFragmentActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".PersonalInformationActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".TwoFragmentsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".DynamicallyCreateFragmentsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ClickCounterActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".AskAQuestionActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".AnswerTheQuestionActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".DisplayPersonalInformationActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".DateActivity" android:label="@string/pickDateActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

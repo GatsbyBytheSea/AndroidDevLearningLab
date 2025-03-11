@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/welcome_page"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to SnackBar Fragment Page"
+            android:id="@+id/to_snackbar_fragment_page"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/to_personal_information_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Go to personal information page"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Two Fragments: Edit - Display"
+            android:onClick="toEditDisplayFragments"
+            android:id="@+id/to_edit_display_fragments_page"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dynamically create fragments"
+            android:id="@+id/to_dynamic_fragment_page"
+            android:onClick="toDynamicFragmentPage"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click Counter"
+            android:id="@+id/to_counter_page"
+            android:onClick="toCounterPage"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ask - Answer questions"
+            android:id="@+id/to_ask_and_answer"
+            android:onClick="toAskAndAnswer"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
