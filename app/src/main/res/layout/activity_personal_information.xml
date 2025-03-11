@@ -15,49 +15,49 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textFamilyName"
+            android:id="@+id/tv_family_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/user_family_name_hint"
+            android:text="@string/hint_tv_family_name"
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/editTextFamilyName"
+            android:autofillHints="familyName"
+            android:id="@+id/et_family_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:hint="@string/user_family_name" />
+            android:hint="@string/hint_et_family_name" />
 
         <TextView
-            android:id="@+id/textFirstName"
+            android:id="@+id/tv_first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/user_name_hint"
+            android:text="@string/hint_tv_name"
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/editTextFirstName"
+            android:autofillHints="givenName"
+            android:id="@+id/et_first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:hint="@string/user_name" />
+            android:hint="@string/hint_et_name" />
 
         <TextView
-            android:id="@+id/textBirthPlace"
+            android:id="@+id/tv_birth_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/user_birth_place_hint"
+            android:text="@string/hint_tv_birth_place"
             android:visibility="visible" />
 
         <Spinner
             android:id="@+id/select_birth_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/birth_place"
-            android:prompt="@string/birth_place_hint"
-            />
+            android:entries="@array/birth_place" />
 
         <LinearLayout
             android:id="@+id/birthDate"
@@ -72,18 +72,17 @@
                 android:id="@+id/textBirthDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/user_birth_date_hint"
+                android:text="@string/hint_birth_date"
                 android:visibility="visible" />
 
             <Button
                 android:id="@+id/select_birth_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/select_date"
+                android:text="@string/msg_select_date"
                 android:onClick="selectBirthDate"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
 
         <View
@@ -104,7 +103,7 @@
         app:layout_constraintBottom_toTopOf="@id/back_to_welcome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/submit_button"/>
+        android:text="@string/btn_submit"/>
 
     <Button
         android:id="@+id/display_personal_info"
@@ -114,7 +113,7 @@
         app:layout_constraintBottom_toTopOf="@id/submit_personal_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/display_personal_information"/>
+        android:text="@string/btn_display"/>
 
 
     <Button
@@ -123,16 +122,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         android:onClick="backToWelcome"
-        android:text='@string/back'
+        android:text='@string/btn_back'
         app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="addPhone"
-        android:text="@string/add_phone"
+        android:text="@string/btn_add_phone"
         app:layout_constraintTop_toBottomOf="@id/personal_info"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

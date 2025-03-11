@@ -25,9 +25,8 @@ public class DynamicallyCreateFragmentsActivity extends AppCompatActivity implem
             return insets;
         });
 
-        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
         if(savedInstanceState == null){
-            fragment = new EditFragment();
+            Fragment fragment = new EditFragment();
             fm.beginTransaction()
                     .add(R.id.fragment_container, fragment)
                     .commit();

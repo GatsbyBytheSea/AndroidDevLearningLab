@@ -14,9 +14,6 @@ import fr.imt_atlantique.myfirstapplication.R;
 
 public class StaticFragment extends Fragment {
 
-    public StaticFragment() {
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -32,12 +29,14 @@ public class StaticFragment extends Fragment {
         final EditText editText = view.findViewById(R.id.editTextInput);
         Button btnShowSnackbar = view.findViewById(R.id.btnShowSnackbar);
 
-        btnShowSnackbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String inputText = editText.getText().toString().trim();
-                Snackbar.make(view, inputText, Snackbar.LENGTH_LONG).show();
-            }
+        btnShowSnackbar.setOnClickListener(v -> {
+            String inputText = editText.getText().toString().trim();
+            Snackbar.make(view, inputText, Snackbar.LENGTH_LONG).show();
         });
+    }
+
+    @Override
+    public void onAttach(@NonNull android.content.Context context) {
+        super.onAttach(context);
     }
 }

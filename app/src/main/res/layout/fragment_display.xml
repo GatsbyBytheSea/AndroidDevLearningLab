@@ -10,7 +10,7 @@
         android:id="@+id/textView_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/show"
+        android:text="@string/msg_show"
         android:textSize="18sp"
         android:layout_gravity="center" />
 
@@ -18,6 +18,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_back"
-        android:text="@string/back"
+        android:text="@string/btn_back"
         android:layout_gravity="bottom|center_horizontal" />
 </FrameLayout>

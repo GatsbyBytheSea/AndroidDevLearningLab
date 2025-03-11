@@ -1,42 +1,44 @@
 <resources>
     <string name="app_name">MyFirstApplication</string>
-    <string name="user_family_name_hint">Veuillez entrer votre nom:</string>
-    <string name="user_family_name">Nom</string>
-    <string name="user_name_hint">Veuillez entrer votre prénom:</string>
-    <string name="user_name">Prénom</string>
-    <string name="user_birth_place_hint">Lieu de naissance</string>
-    <string name="user_birth_place">Lieu de naissance</string>
-    <string name="submit_button">soumettez</string>
-    <string name="submit_message">Le formulaire actuel est uniquement destiné à l\'apprentissage et au test du développement d\'applications Android, il ne collectera aucune information personnelle ni ne sera une soumission réelle. D\'autres fonctionnalités sont en cours de développement. </string>
-    <string name="close_button">Fermer</string>
-    <string name="reset_action">Réinitialiser</string>
-    <string name="add_phone">Ajouter un téléphone</string>
-    <string name="phone_number">Numéro de téléphone</string>
-    <string name="birth_place">Lieu de naissance</string>
-    <string name="first_name">Prénom</string>
-    <string name="family_name">Nom de famille</string>
-    <string name="birth_place_hint">Veuillez sélectionner votre lieu de naissance</string>
-    <string name="delete">Effacer</string>
-    <string name="back">Retour</string>
-    <string name="user_birth_date_hint">Veuillez entrer votre date de naissance:</string>
-    <string name="select_date">Sélectionner une date</string>
-    <string name="birth_date">Date de naissance</string>
-    <string name="show">Montrer</string>
-    <string name="click_me">Cliquez-moi!</string>
-    <string name="raise_a_question">Veuillez poser une question:</string>
-    <string name="input_answer">Veuillez entrer la réponse:</string>
-    <string name="reset">Réinitialiser</string>
-    <string name="open_wikipedia">Ouvrir Wikipedia</string>
-    <string name="no_browser_message">Aucun navigateur disponible</string>
-    <string name="share_birth_city">Partager la ville de naissance</string>
-    <string name="my_birth_city_is">Ma ville de naissance est :</string>
-    <string name="share_via">Partager via</string>
-    <string name="no_share_app">Aucune application trouvée pour partager vos informations.</string>
-    <string name="display_personal_information">Afficher les informations personnales</string>
-    <string name="pickDateActivity">Choisir une date</string>
-    <string name="cancel">Annuler</string>
-    <string name="confirm">Confirmer</string>
-    <string name="no_date_selected">Aucune date sélectionnée</string>
-    <string name="no_user_data">Aucune donnée utilisateur disponible</string>
-    <string name="dial_phone">Composer un numéro de téléphone</string>
+
+    <string name="hint_tv_family_name">Veuillez entrer votre nom:</string>
+    <string name="hint_et_family_name">Nom</string>
+    <string name="hint_tv_name">Veuillez entrer votre prénom:</string>
+    <string name="hint_et_name">Prénom</string>
+    <string name="hint_tv_birth_place">Lieu de naissance</string>
+    <string name="hint_birth_date">Veuillez entrer votre date de naissance:</string>
+
+    <string name="btn_submit">soumettez</string>
+    <string name="btn_close">Fermer</string>
+    <string name="btn_reset">Réinitialiser</string>
+    <string name="btn_add_phone">Ajouter un téléphone</string>
+    <string name="btn_delete">Effacer</string>
+    <string name="btn_back">Retour</string>
+    <string name="btn_click_me">Cliquez-moi!</string>
+    <string name="btn_open_wikipedia">Ouvrir Wikipedia</string>
+    <string name="btn_share_birth_city">Partager la ville de naissance</string>
+    <string name="btn_display">Afficher</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="btn_confirm">Confirmer</string>
+    <string name="btn_dial_phone">Composer un numéro de téléphone</string>
+    <string name="btn_next">Suivant</string>
+
+    <string name="title_phone_number">Numéro de téléphone</string>
+    <string name="title_birth_place">Lieu de naissance</string>
+    <string name="title_first_name">Prénom</string>
+    <string name="title_family_name">Nom de famille</string>
+    <string name="title_birth_date">Date de naissance</string>
+    <string name="title_my_birth_city">Ma ville de naissance est :</string>
+
+    <string name="warning_no_share_app">Aucune application trouvée pour partager vos informations.</string>
+    <string name="warning_no_browser_message">Aucun navigateur disponible</string>
+    <string name="warning_no_date_selected">Aucune date sélectionnée</string>
+    <string name="warning_no_user_data">Aucune donnée utilisateur disponible</string>
+
+    <string name="msg_select_date">Sélectionner une date</string>
+    <string name="msg_show">Montrer</string>
+    <string name="msg_raise_a_question">Veuillez poser une question:</string>
+    <string name="msg_input_answer">Veuillez entrer la réponse:</string>
+    <string name="msg_share_via">Partager via</string>
+
 </resources>

@@ -30,7 +30,7 @@ public class EditFragment extends Fragment {
         if (context instanceof OnSubmitInterface) {
             callback = (OnSubmitInterface) context;
         } else {
-            throw new RuntimeException(context.toString() + " OnEditNameInterface must be implemented");
+            throw new RuntimeException(context + " OnEditNameInterface must be implemented");
         }
     }
 
@@ -47,18 +47,11 @@ public class EditFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         editText = view.findViewById(R.id.editText_input);
         Button button = view.findViewById(R.id.btn_send);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String input = editText.getText().toString().trim();
-                if (callback != null) {
-                    callback.onSubmit(input);
-                }
+        button.setOnClickListener(v -> {
+            String input = editText.getText().toString().trim();
+            if (callback != null) {
+                callback.onSubmit(input);
             }
         });
-    }
-
-    public void close(View view) {
-        getActivity().finish();
     }
 }

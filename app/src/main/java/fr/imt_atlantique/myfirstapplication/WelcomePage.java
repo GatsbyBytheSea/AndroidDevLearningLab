@@ -55,5 +55,8 @@ public class WelcomePage extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void toPersonalInfoFragment(android.view.View view) {
+        Intent intent = new Intent(this, PersonalInfoFragmentActivity.class);
+        startActivity(intent);
+    }
 }

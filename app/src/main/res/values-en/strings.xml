@@ -1,42 +1,44 @@
 <resources>
     <string name="app_name">MyFirstApplication</string>
-    <string name="user_family_name_hint">Please enter your family name: </string>
-    <string name="user_family_name">Family Name</string>
-    <string name="user_name_hint">Please enter your first name: </string>
-    <string name="user_name">First Name</string>
-    <string name="user_birth_place_hint">Please enter your place of birth:</string>
-    <string name="user_birth_place">Place of Birth</string>
-    <string name="submit_button">submit</string>
-    <string name="submit_message">The current form is only for learning and testing Android application development, it will not collect any personal information nor is it a real submission. Further features are under development.</string>
-    <string name="close_button">Close</string>
-    <string name="reset_action">Reset</string>
-    <string name="add_phone">Add Phone</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="birth_place">Place of Birth</string>
-    <string name="first_name">First Name</string>
-    <string name="family_name">Family Name</string>
-    <string name="birth_place_hint">Please select your place of birth</string>
-    <string name="delete">Delete</string>
-    <string name="back">Back</string>
-    <string name="user_birth_date_hint">Please enter your birth date:</string>
-    <string name="select_date">Select Date</string>
-    <string name="birth_date">Birth Date</string>
-    <string name="show">Show</string>
-    <string name="click_me">Click me!</string>
-    <string name="raise_a_question">Please raise a question:</string>
-    <string name="input_answer">Please input the answer:</string>
-    <string name="reset">Reset</string>
-    <string name="open_wikipedia">Open Wikipedia</string>
-    <string name="no_browser_message">No browser available</string>
-    <string name="share_birth_city">Share Birth City</string>
-    <string name="my_birth_city_is">My birth city is: </string>
-    <string name="share_via">Share via</string>
-    <string name="no_share_app">No application found to share your information.</string>
-    <string name="display_personal_information">Display Personal Information</string>
-    <string name="pickDateActivity">Pick Date</string>
-    <string name="cancel">Cancel</string>
-    <string name="confirm">Confirm</string>
-    <string name="no_date_selected">No date selected</string>
-    <string name="no_user_data">No user data available</string>
-    <string name="dial_phone">Dial Phone</string>
+
+    <string name="hint_tv_family_name">Please enter your family name: </string>
+    <string name="hint_et_family_name">Family Name</string>
+    <string name="hint_tv_name">Please enter your first name: </string>
+    <string name="hint_et_name">First Name</string>
+    <string name="hint_tv_birth_place">Please enter your place of birth:</string>
+    <string name="hint_birth_date">Please enter your birth date:</string>
+
+    <string name="btn_submit">submit</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_add_phone">Add Phone</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_click_me">Click me!</string>
+    <string name="btn_open_wikipedia">Open Wikipedia</string>
+    <string name="btn_share_birth_city">Share Birth City</string>
+    <string name="btn_display">Display</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_dial_phone">Dial Phone</string>
+    <string name="btn_next">Next</string>
+
+    <string name="title_phone_number">Phone Number</string>
+    <string name="title_birth_place">Place of Birth</string>
+    <string name="title_first_name">First Name</string>
+    <string name="title_family_name">Family Name</string>
+    <string name="title_birth_date">Birth Date</string>
+    <string name="title_my_birth_city">My birth city is: </string>
+
+    <string name="warning_no_share_app">No application found to share your information.</string>
+    <string name="warning_no_browser_message">No browser available</string>
+    <string name="warning_no_date_selected">No date selected</string>
+    <string name="warning_no_user_data">No user data available</string>
+
+    <string name="msg_select_date">Select Date</string>
+    <string name="msg_show">Show</string>
+    <string name="msg_raise_a_question">Please raise a question:</string>
+    <string name="msg_input_answer">Please input the answer:</string>
+    <string name="msg_share_via">Share via</string>
+
 </resources>

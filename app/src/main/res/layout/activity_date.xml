@@ -10,7 +10,7 @@ android:id="@+id/date_picker">
         android:id="@+id/date_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_date_selected"
+        android:text="@string/warning_no_date_selected"
         android:textSize="20sp"
         android:layout_marginBottom="24dp"/>
 
@@ -18,12 +18,12 @@ android:id="@+id/date_picker">
         android:id="@+id/btn_confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/confirm"/>
+        android:text="@string/btn_confirm"/>
 
     <Button
         android:id="@+id/btn_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cancel"
+        android:text="@string/btn_cancel"
         android:layout_marginTop="16dp"/>
 </LinearLayout>

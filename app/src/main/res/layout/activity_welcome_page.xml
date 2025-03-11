@@ -18,8 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Go to SnackBar Fragment Page"
             android:id="@+id/to_snackbar_fragment_page"
-            android:layout_gravity="center"
-            android:layout_centerInParent="true"/>
+            android:layout_gravity="center" />
 
         <Button
             android:id="@+id/to_personal_information_page"
@@ -56,6 +55,14 @@
             android:text="Ask - Answer questions"
             android:id="@+id/to_ask_and_answer"
             android:onClick="toAskAndAnswer"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Information Fragments"
+            android:id="@+id/to_personal_information_fragment"
+            android:onClick="toPersonalInfoFragment"
             android:layout_gravity="center"/>
     </LinearLayout>
 

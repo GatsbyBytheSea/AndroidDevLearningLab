@@ -2,13 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_reset"
-        android:title="@string/reset_action"/>
+        android:title="@string/btn_reset"/>
 
     <item
         android:id="@+id/action_wikipedia"
-        android:title="@string/open_wikipedia"/>
+        android:title="@string/btn_open_wikipedia"/>
 
     <item
         android:id="@+id/action_share_birth_city"
-        android:title="@string/share_birth_city"/>
+        android:title="@string/btn_share_birth_city"/>
 </menu>

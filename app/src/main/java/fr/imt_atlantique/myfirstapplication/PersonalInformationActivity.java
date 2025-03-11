@@ -1,6 +1,5 @@
 package fr.imt_atlantique.myfirstapplication;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -57,8 +56,8 @@ public class PersonalInformationActivity extends AppCompatActivity {
             return insets;
         });
 
-        editTextFamilyName = findViewById(R.id.editTextFamilyName);
-        editTextFirstName = findViewById(R.id.editTextFirstName);
+        editTextFamilyName = findViewById(R.id.et_family_name);
+        editTextFirstName = findViewById(R.id.et_first_name);
         spinnerBirthPlace = findViewById(R.id.select_birth_place);
         birthDateBtn = findViewById(R.id.select_birth_date);
         personalInfo = findViewById(R.id.personal_info);
@@ -67,7 +66,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
             editTextFamilyName.setText(savedInstanceState.getString(KEY_FAMILY_NAME, ""));
             editTextFirstName.setText(savedInstanceState.getString(KEY_FIRST_NAME, ""));
             spinnerBirthPlace.setSelection(savedInstanceState.getInt(KEY_BIRTH_PLACE, 0));
-            birthDateBtn.setText(savedInstanceState.getString(KEY_BIRTH_DATE, getString(R.string.select_date)));
+            birthDateBtn.setText(savedInstanceState.getString(KEY_BIRTH_DATE, getString(R.string.msg_select_date)));
             String phoneNumbersStr = savedInstanceState.getString(KEY_PHONE_NUMBERS, "");
             restorePhoneNumbers(phoneNumbersStr);
         } else {
@@ -86,7 +85,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
                             }
                         }
                     } else {
-                        Snackbar.make(personalInfo, R.string.no_date_selected, Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(personalInfo, R.string.warning_no_date_selected, Snackbar.LENGTH_LONG).show();
                     }
                 }
         );
@@ -99,10 +98,10 @@ public class PersonalInformationActivity extends AppCompatActivity {
         String birthPlace = spinnerBirthPlace.getSelectedItem().toString();
         String birthDate = birthDateBtn.getText().toString();
 
-        String message = getString(R.string.family_name) + ": " + familyName + "\n" +
-                getString(R.string.first_name) + ": " + firstName + "\n" +
-                getString(R.string.birth_place) + ": " + birthPlace + "\n" +
-                getString(R.string.birth_date) + ": " + birthDate;
+        String message = getString(R.string.title_family_name) + ": " + familyName + "\n" +
+                getString(R.string.title_first_name) + ": " + firstName + "\n" +
+                getString(R.string.title_birth_place) + ": " + birthPlace + "\n" +
+                getString(R.string.title_birth_date) + ": " + birthDate;
 
 
 
@@ -117,14 +116,14 @@ public class PersonalInformationActivity extends AppCompatActivity {
             }
         }
         if (phoneNumbers.length() > 0) {
-            message += "\n" + getString(R.string.phone_number) + ": " + phoneNumbers;
+            message += "\n" + getString(R.string.title_phone_number) + ": " + phoneNumbers;
         }
 
         Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE);
         View snackbarView = snackbar.getView();
         TextView textView = snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
         textView.setMaxLines(5);
-        snackbar.setAction(getString(R.string.close_button), v -> snackbar.dismiss());
+        snackbar.setAction(getString(R.string.btn_close), v -> snackbar.dismiss());
         snackbar.show();
     }
 
@@ -160,21 +159,21 @@ public class PersonalInformationActivity extends AppCompatActivity {
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             } else {
-                Snackbar.make(personalInfo, getString(R.string.no_browser_message), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(personalInfo, getString(R.string.warning_no_browser_message), Snackbar.LENGTH_LONG).show();
             }
             return true;
         }
         if (id == R.id.action_share_birth_city) {
             String birthCity = spinnerBirthPlace.getSelectedItem().toString();
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.my_birth_city_is) + " " + birthCity);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.title_my_birth_city) + " " + birthCity);
             shareIntent.setType("text/plain");
 
-            Intent chooser = Intent.createChooser(shareIntent, getString(R.string.share_via));
+            Intent chooser = Intent.createChooser(shareIntent, getString(R.string.msg_share_via));
             if (shareIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(chooser);
             } else {
-                Snackbar.make(personalInfo, getString(R.string.no_share_app), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(personalInfo, getString(R.string.warning_no_share_app), Snackbar.LENGTH_LONG).show();
             }
             return true;
         }
@@ -185,7 +184,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
         editTextFamilyName.setText("");
         editTextFirstName.setText("");
         spinnerBirthPlace.setSelection(0);
-        birthDateBtn.setText(getString(R.string.select_date));
+        birthDateBtn.setText(getString(R.string.msg_select_date));
         int totalChildren = personalInfo.getChildCount();
         if (totalChildren > STATIC_CHILD_COUNT) {
             personalInfo.removeViews(STATIC_CHILD_COUNT, totalChildren - STATIC_CHILD_COUNT);
@@ -210,7 +209,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
         Button deleteButton = new Button(this);
         LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         deleteButton.setLayoutParams(buttonParams);
-        deleteButton.setText(getString(R.string.delete));
+        deleteButton.setText(getString(R.string.btn_delete));
 
         deleteButton.setOnClickListener(v -> personalInfo.removeView(phoneContainer));
 
@@ -315,7 +314,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
         editTextFamilyName.setText(prefs.getString(KEY_FAMILY_NAME, ""));
         editTextFirstName.setText(prefs.getString(KEY_FIRST_NAME, ""));
         spinnerBirthPlace.setSelection(prefs.getInt(KEY_BIRTH_PLACE, 0));
-        birthDateBtn.setText(prefs.getString(KEY_BIRTH_DATE, getString(R.string.select_date)));
+        birthDateBtn.setText(prefs.getString(KEY_BIRTH_DATE, getString(R.string.msg_select_date)));
         String phoneNumbersStr = prefs.getString(KEY_PHONE_NUMBERS, "");
         restorePhoneNumbers(phoneNumbersStr);
     }
