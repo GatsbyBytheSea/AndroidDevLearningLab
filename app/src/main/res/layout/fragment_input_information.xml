@@ -59,14 +59,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/birth_place" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_phone"
+        android:id="@+id/add_phone_button"
+        app:layout_constraintTop_toBottomOf="@id/input_linear_layout"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_next"
-        app:layout_constraintTop_toBottomOf="@id/input_linear_layout"
+        app:layout_constraintTop_toBottomOf="@id/add_phone_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

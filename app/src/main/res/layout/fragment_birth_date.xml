@@ -5,25 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_personal_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="16dp"
-            android:gravity="center"
-            />
-
-
         <LinearLayout
             android:id="@+id/input_linear_layout"
             android:orientation="horizontal"
             android:padding="16dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_personal_info"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
                 <TextView
@@ -52,5 +40,16 @@
             android:padding="16dp"
             android:gravity="center"
             />
+
+        <Button
+            android:id="@+id/back_button_on_birthdate_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="16dp"
+            android:gravity="center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
