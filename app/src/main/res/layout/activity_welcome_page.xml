@@ -14,37 +14,16 @@
     app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go to SnackBar Fragment Page"
-            android:id="@+id/to_snackbar_fragment_page"
-            android:layout_gravity="center" />
-
-        <Button
             android:id="@+id/to_personal_information_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Go to personal information page"/>
+            android:text="TP 1,2,3 - Go to personal information page"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Two Fragments: Edit - Display"
-            android:onClick="toEditDisplayFragments"
-            android:id="@+id/to_edit_display_fragments_page"
-            android:layout_gravity="center"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dynamically create fragments"
-            android:id="@+id/to_dynamic_fragment_page"
-            android:onClick="toDynamicFragmentPage"
-            android:layout_gravity="center"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click Counter"
+            android:text="TP 3 - Click Counter"
             android:id="@+id/to_counter_page"
             android:onClick="toCounterPage"
             android:layout_gravity="center"/>
@@ -52,7 +31,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ask - Answer questions"
+            android:text="TP 4 - Ask - Answer questions"
             android:id="@+id/to_ask_and_answer"
             android:onClick="toAskAndAnswer"
             android:layout_gravity="center"/>
@@ -60,7 +39,30 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Personal Information Fragments"
+            android:text="TP 5 - Go to SnackBar Fragment Page"
+            android:id="@+id/to_snackbar_fragment_page"
+            android:layout_gravity="center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TP 5 - Two Fragments: Edit - Display"
+            android:onClick="toEditDisplayFragments"
+            android:id="@+id/to_edit_display_fragments_page"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TP 5 - Dynamically create fragments"
+            android:id="@+id/to_dynamic_fragment_page"
+            android:onClick="toDynamicFragmentPage"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TP 5 - Personal Information Fragments"
             android:id="@+id/to_personal_information_fragment"
             android:onClick="toPersonalInfoFragment"
             android:layout_gravity="center"/>
