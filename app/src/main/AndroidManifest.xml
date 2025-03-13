@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
@@ -28,6 +31,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDiZDP9zQEhFexUJlnktx2M24tbQ-x0WI8" />
+
         <activity
             android:name=".WelcomePage"
             android:exported="true">
@@ -81,6 +89,11 @@
 
         <activity
             android:name=".PersonalInfoFragmentActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".GoogleMapsMarkerActivity"
             android:exported="true">
         </activity>
 

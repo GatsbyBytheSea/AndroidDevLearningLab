@@ -66,6 +66,24 @@
             android:id="@+id/to_personal_information_fragment"
             android:onClick="toPersonalInfoFragment"
             android:layout_gravity="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google Maps Marker"
+            android:layout_gravity="center"
+            android:id="@+id/to_google_maps_marker_page" />
+
+
     </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,4 +41,11 @@
     <string name="msg_input_answer">Veuillez entrer la réponse:</string>
     <string name="msg_share_via">Partager via</string>
 
+    <string name="map_type_normal">Normal</string>
+    <string name="map_type_hybrid">Hybride</string>
+    <string name="map_type_satellite">Satellite</string>
+
+    <string name="word_latitude">Latitude</string>
+    <string name="word_longitude">Longitude</string>
+
 </resources>

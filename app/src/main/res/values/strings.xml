@@ -41,4 +41,11 @@
     <string name="msg_select_date">选择日期</string>
     <string name="msg_show">显示</string>
 
+    <string name="map_type_normal">普通</string>
+    <string name="map_type_hybrid">混合</string>
+    <string name="map_type_satellite">卫星</string>
+
+    <string name="word_latitude">纬度</string>
+    <string name="word_longitude">经度</string>
+
 </resources>

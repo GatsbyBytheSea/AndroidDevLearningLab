@@ -22,15 +22,21 @@ public class WelcomePage extends AppCompatActivity {
             return insets;
         });
 
-        Button button = findViewById(R.id.to_snackbar_fragment_page);
-        button.setOnClickListener(v -> {
+        Button btnToSnackbarFragment = findViewById(R.id.to_snackbar_fragment_page);
+        btnToSnackbarFragment.setOnClickListener(v -> {
             Intent intent = new Intent(WelcomePage.this, SnackbarFragmentActivity.class);
             startActivity(intent);
         });
 
-        Button button2 = findViewById(R.id.to_personal_information_page);
-        button2.setOnClickListener(v -> {
+        Button btnToPersonalInfoPage = findViewById(R.id.to_personal_information_page);
+        btnToPersonalInfoPage.setOnClickListener(v -> {
             Intent intent = new Intent(WelcomePage.this, PersonalInformationActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnToGoogleMapsMarker = findViewById(R.id.to_google_maps_marker_page);
+        btnToGoogleMapsMarker.setOnClickListener(v -> {
+            Intent intent = new Intent(WelcomePage.this, GoogleMapsMarkerActivity.class);
             startActivity(intent);
         });
     }

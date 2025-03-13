@@ -41,4 +41,10 @@
     <string name="msg_input_answer">Please input the answer:</string>
     <string name="msg_share_via">Share via</string>
 
+    <string name="map_type_normal">Normal</string>
+    <string name="map_type_hybrid">Hybrid</string>
+    <string name="map_type_satellite">Satellite</string>
+
+    <string name="word_latitude">Latitude</string>
+    <string name="word_longitude">Longitude</string>
 </resources>
