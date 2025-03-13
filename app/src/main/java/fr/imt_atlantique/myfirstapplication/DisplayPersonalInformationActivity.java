@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -20,14 +21,14 @@ public class DisplayPersonalInformationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_personal_information);
-
+        EdgeToEdge.enable(this);
         displayTextView = findViewById(R.id.display_personal_info_text);
         user = getIntent().getParcelableExtra("user");
 
         if (user != null) {
-            String info = "Family Name: " + user.getFamilyName() + "\n"
-                    + "First Name: " + user.getFirstName() + "\n"
-                    + "Birth Place: " + user.getBirthPlace() + "\n";
+            String info = getString(R.string.title_family_name) + user.getFamilyName() + "\n"
+                    + getString(R.string.title_first_name) + user.getFirstName() + "\n"
+                    + getString(R.string.title_birth_place) + user.getBirthPlace() + "\n";
             if (user.getPhoneNumbers() != null && !user.getPhoneNumbers().isEmpty()) {
                 info += "Phone Numbers:\n";
                 String[] phones = user.getPhoneNumbers().split("\\|\\|");

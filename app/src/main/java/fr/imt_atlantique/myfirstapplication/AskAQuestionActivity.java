@@ -1,10 +1,10 @@
 package fr.imt_atlantique.myfirstapplication;
 
 import android.content.Intent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +25,7 @@ public class AskAQuestionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ask_a_question);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.tp4), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -48,15 +49,12 @@ public class AskAQuestionActivity extends AppCompatActivity {
                     }
                 });
 
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                String question = editText.getText().toString();
-                Intent intent = new Intent(AskAQuestionActivity.this, AnswerTheQuestionActivity.class);
-                intent.putExtra(KEY_QUESTION, question);
+        button.setOnClickListener(view -> {
+            String question = editText.getText().toString();
+            Intent intent = new Intent(AskAQuestionActivity.this, AnswerTheQuestionActivity.class);
+            intent.putExtra(KEY_QUESTION, question);
 
-                activityResultLauncher.launch(intent);
-            }
+            activityResultLauncher.launch(intent);
         });
     }
 

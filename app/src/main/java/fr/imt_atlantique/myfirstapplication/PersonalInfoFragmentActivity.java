@@ -2,6 +2,7 @@ package fr.imt_atlantique.myfirstapplication;
 
 import android.os.Bundle;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -17,11 +18,15 @@ public class PersonalInfoFragmentActivity extends AppCompatActivity implements I
         DisplayInfoFragment.OnBackButtonPressedListener,
         BirthDateFragment.OnBackButtonPressedListener {
 
-    private String firstName, lastName, birthPlace, phone, birthDate;
+    private String firstName;
+    private String lastName;
+    private String birthPlace;
+    private String phone;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info_fragment);
+        EdgeToEdge.enable(this);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fragment_container), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -50,9 +55,8 @@ public class PersonalInfoFragmentActivity extends AppCompatActivity implements I
 
     @Override
     public void onBirthDateSubmitted(String birthDateInfo) {
-        this.birthDate = birthDateInfo;
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, DisplayInfoFragment.newInstance(firstName, lastName, birthPlace, birthDate, phone))
+                .replace(R.id.fragment_container, DisplayInfoFragment.newInstance(firstName, lastName, birthPlace, birthDateInfo, phone))
                 .addToBackStack(null)
                 .commit();
     }

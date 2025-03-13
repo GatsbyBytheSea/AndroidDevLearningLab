@@ -37,7 +37,7 @@ public class User implements Parcelable {
         return 0;
     }
 
-    public static final Creator<User> CREATOR = new Creator<User>() {
+    public static final Creator<User> CREATOR = new Creator<>() {
         @Override
         public User createFromParcel(Parcel in) {
             return new User(in);
@@ -62,13 +62,12 @@ public class User implements Parcelable {
         return phoneNumbers;
     }
 
-    public void setFamilyName(String familyName) {
-        this.familyName = familyName;
-    }
+    public void setFamilyName(String familyName) { this.familyName = familyName; }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     public void setBirthPlace(String birthPlace) {
         this.birthPlace = birthPlace;
     }
+    public void setPhoneNumbers(String phoneNumbers) { this.phoneNumbers = phoneNumbers; }
 }
