@@ -1,12 +1,17 @@
 package fr.imt_atlantique.myfirstapplication;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -17,8 +22,10 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -27,11 +34,14 @@ public class GoogleMapsMarkerActivity extends AppCompatActivity {
 
     private GoogleMap mMap;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
+
+    private ActivityResultLauncher<Intent> markerInputLauncher;
     private static final String KEY_MARKERS = "markers";
     private static final String KEY_MAP_TYPE = "map_type";
     private static final String KEY_CAMERA_POSITION = "camera_position";
 
-    private ArrayList<LatLng> markerPositions = new ArrayList<>();
+    private LatLng pendingMarkerLatLng = null;
+    private ArrayList<MarkerData> markerDataList = new ArrayList<>();
     private int mapType = GoogleMap.MAP_TYPE_NORMAL;
     private CameraPosition cameraPosition = null;
 
@@ -48,13 +58,34 @@ public class GoogleMapsMarkerActivity extends AppCompatActivity {
 
         // Restore saved instance state
         if(savedInstanceState != null) {
-            markerPositions = savedInstanceState.getParcelableArrayList(KEY_MARKERS);
+            markerDataList = savedInstanceState.getParcelableArrayList(KEY_MARKERS);
             mapType = savedInstanceState.getInt(KEY_MAP_TYPE);
             cameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
-            if(markerPositions == null) {
-                markerPositions = new ArrayList<>();
+            if(markerDataList == null) {
+                markerDataList = new ArrayList<>();
             }
         }
+
+        markerInputLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                String markerText = result.getData().getStringExtra("markerText");
+                String markerImagePath = result.getData().getStringExtra("markerImagePath");
+
+                if(pendingMarkerLatLng != null){
+                    MarkerOptions options = new MarkerOptions().position(pendingMarkerLatLng).title(markerText);
+                    if(markerImagePath != null){
+                        Bitmap scaledIcon = getResizedBitmap(markerImagePath, 100, 100);
+                        options.icon(BitmapDescriptorFactory.fromBitmap(scaledIcon));
+                    }
+                    Marker marker = mMap.addMarker(options);
+                    MarkerData data = new MarkerData(pendingMarkerLatLng, markerText, markerImagePath);
+                    marker.setTag(data);
+                    markerDataList.add(data);
+                    pendingMarkerLatLng = null;
+                }
+            }
+        );
 
         // Initialize the map
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -82,10 +113,14 @@ public class GoogleMapsMarkerActivity extends AppCompatActivity {
                 }
 
                 // Add markers from saved instance state
-                for(LatLng latLng : markerPositions) {
-                    String title = getString(R.string.word_latitude) + ": " + latLng.latitude + ", "
-                            + getString(R.string.word_longitude) + ": " + latLng.longitude;
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(title));
+                for(MarkerData data : markerDataList ) {
+                    MarkerOptions options = new MarkerOptions().position(data.position).title(data.title);
+                    if(data.markerImagePath != null){
+                        Bitmap scaledIcon = getResizedBitmap(data.markerImagePath, 100, 100);
+                        options.icon(BitmapDescriptorFactory.fromBitmap(scaledIcon));
+                    }
+                    Marker marker = mMap.addMarker(options);
+                    marker.setTag(data);
                 }
 
                 // Set the saved map type
@@ -100,10 +135,23 @@ public class GoogleMapsMarkerActivity extends AppCompatActivity {
                 });
 
                 mMap.setOnMapLongClickListener(latLng -> {
-                    String title = getString(R.string.word_latitude) + ": " + latLng.latitude + ", "
-                            + getString(R.string.word_longitude) + ": " + latLng.longitude;
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(title));
-                    markerPositions.add(latLng);
+                    pendingMarkerLatLng = latLng;
+                    Intent intent = new Intent(GoogleMapsMarkerActivity.this, MarkerInputActivity.class);
+                    markerInputLauncher.launch(intent);
+                });
+
+                mMap.setOnMarkerClickListener(marker -> {
+                    MarkerData data = (MarkerData) marker.getTag();
+                    if(data != null) {
+                        Intent markerDetailIntent = new Intent(GoogleMapsMarkerActivity.this, MarkerDetailActivity.class);
+                        markerDetailIntent.putExtra("markerTitle", data.title);
+                        markerDetailIntent.putExtra("markerLatLng", data.position);
+                        markerDetailIntent.putExtra("markerImagePath", data.markerImagePath);
+                        startActivity(markerDetailIntent);
+                        return true;
+                    }else{
+                        return false;
+                    }
                 });
             });
         }
@@ -132,8 +180,16 @@ public class GoogleMapsMarkerActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         if (mMap != null) {
             outState.putParcelable(KEY_CAMERA_POSITION, mMap.getCameraPosition());
-            outState.putParcelableArrayList(KEY_MARKERS, markerPositions);
             outState.putInt(KEY_MAP_TYPE, mMap.getMapType());
         }
+        outState.putParcelableArrayList(KEY_MARKERS, markerDataList);
+    }
+
+    private Bitmap getResizedBitmap(String imagePath, int width, int height) {
+        Bitmap original = BitmapFactory.decodeFile(imagePath);
+        if(original != null){
+            return Bitmap.createScaledBitmap(original, width, height, true);
+        }
+        return null;
     }
 }

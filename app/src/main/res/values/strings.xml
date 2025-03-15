@@ -7,6 +7,9 @@
     <string name="hint_et_family_name">姓</string>
     <string name="hint_et_name">名</string>
     <string name="hint_birth_date">请输入您的出生日期：</string>
+    <string name="hint_marker_name_input">请输入标记名称</string>
+    <string name="hint_marker_name">标记名称</string>
+    <string name="hint_marker_position">标记位置</string>
 
     <string name="btn_submit">提交</string>
     <string name="btn_close">关闭</string>
@@ -22,6 +25,7 @@
     <string name="btn_share_birth_city">分享出生城市</string>
     <string name="btn_display">展示</string>
     <string name="btn_next">下一步</string>
+    <string name="btn_add_image">添加图片</string>
 
     <string name="title_phone_number">电话号码</string>
     <string name="title_birth_place">出生地</string>
@@ -30,16 +34,20 @@
     <string name="title_my_birth_city">我的出生城市是：</string>
     <string name="title_birth_date">出生日期</string>
 
-    <string name="warning_no_date_selected">未选择日期</string>
-    <string name="warning_no_user_data">没有可用联系人信息</string>
-    <string name="warning_no_share_app">未找到可用于分享您的信息的应用程序。</string>
-    <string name="warning_no_browser_message">系统没有可用浏览器</string>
+    <string name="error_no_date_selected">未选择日期</string>
+    <string name="error_no_user_data">没有可用联系人信息</string>
+    <string name="error_no_share_app">未找到可用于分享您的信息的应用程序。</string>
+    <string name="error_no_browser_message">系统没有可用浏览器</string>
+    <string name="error_no_camera">没有可用的相机</string>
+    <string name="error_image_load_failed">图片加载失败</string>
 
     <string name="msg_share_via">分享通过</string>
     <string name="msg_raise_a_question">请提出一个问题：</string>
     <string name="msg_input_answer">请输入答案：</string>
     <string name="msg_select_date">选择日期</string>
     <string name="msg_show">显示</string>
+    <string name="msg_marker_image">请为标记添加图片</string>
+    <string name="msg_choose_image_source">选择图片来源</string>
 
     <string name="map_type_normal">普通</string>
     <string name="map_type_hybrid">混合</string>
@@ -47,5 +55,6 @@
 
     <string name="word_latitude">纬度</string>
     <string name="word_longitude">经度</string>
-
+    <string name="word_camera">相机</string>
+    <string name="word_gallery">相册</string>
 </resources>

@@ -87,7 +87,7 @@ public class InputInformationFragment extends Fragment {
                     if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
                         startActivity(intent);
                     } else {
-                        Snackbar.make(spBirthPlace, getString(R.string.warning_no_browser_message), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(spBirthPlace, getString(R.string.error_no_browser_message), Snackbar.LENGTH_LONG).show();
                     }
                     return true;
                 }
@@ -101,7 +101,7 @@ public class InputInformationFragment extends Fragment {
                     if (shareIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
                         startActivity(chooser);
                     } else {
-                        Snackbar.make(spBirthPlace, getString(R.string.warning_no_share_app), Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(spBirthPlace, getString(R.string.error_no_share_app), Snackbar.LENGTH_LONG).show();
                     }
                     return true;
                 }

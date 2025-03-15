@@ -38,7 +38,7 @@ public class DisplayPersonalInformationActivity extends AppCompatActivity {
             }
             displayTextView.setText(info);
         } else {
-            displayTextView.setText(R.string.warning_no_user_data);
+            displayTextView.setText(R.string.error_no_user_data);
         }
     }
 

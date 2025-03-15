@@ -58,9 +58,7 @@ public class User implements Parcelable {
     public String getBirthPlace() {
         return birthPlace;
     }
-    public String getPhoneNumbers() {
-        return phoneNumbers;
-    }
+    public String getPhoneNumbers() { return phoneNumbers; }
 
     public void setFamilyName(String familyName) { this.familyName = familyName; }
     public void setFirstName(String firstName) {

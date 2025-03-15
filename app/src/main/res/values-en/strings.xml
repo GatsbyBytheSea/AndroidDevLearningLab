@@ -7,6 +7,9 @@
     <string name="hint_et_name">First Name</string>
     <string name="hint_tv_birth_place">Please enter your place of birth:</string>
     <string name="hint_birth_date">Please enter your birth date:</string>
+    <string name="hint_marker_name_input">Please enter the marker name</string>
+    <string name="hint_marker_name">Marker Name</string>
+    <string name="hint_marker_position">Marker Position</string>
 
     <string name="btn_submit">submit</string>
     <string name="btn_close">Close</string>
@@ -22,6 +25,7 @@
     <string name="btn_confirm">Confirm</string>
     <string name="btn_dial_phone">Dial Phone</string>
     <string name="btn_next">Next</string>
+    <string name="btn_add_image">Add Image</string>
 
     <string name="title_phone_number">Phone Number</string>
     <string name="title_birth_place">Place of Birth</string>
@@ -30,16 +34,20 @@
     <string name="title_birth_date">Birth Date</string>
     <string name="title_my_birth_city">My birth city is: </string>
 
-    <string name="warning_no_share_app">No application found to share your information.</string>
-    <string name="warning_no_browser_message">No browser available</string>
-    <string name="warning_no_date_selected">No date selected</string>
-    <string name="warning_no_user_data">No user data available</string>
+    <string name="error_no_share_app">No application found to share your information.</string>
+    <string name="error_no_browser_message">No browser available</string>
+    <string name="error_no_date_selected">No date selected</string>
+    <string name="error_no_user_data">No user data available</string>
+    <string name="error_no_camera">No camera available</string>
+    <string name="error_image_load_failed">Image load failed</string>
 
     <string name="msg_select_date">Select Date</string>
     <string name="msg_show">Show</string>
     <string name="msg_raise_a_question">Please raise a question:</string>
     <string name="msg_input_answer">Please input the answer:</string>
     <string name="msg_share_via">Share via</string>
+    <string name="msg_marker_image">Please add an image for the marker</string>
+    <string name="msg_choose_image_source">Choose Image Source</string>
 
     <string name="map_type_normal">Normal</string>
     <string name="map_type_hybrid">Hybrid</string>
@@ -47,4 +55,6 @@
 
     <string name="word_latitude">Latitude</string>
     <string name="word_longitude">Longitude</string>
+    <string name="word_camera">Camera</string>
+    <string name="word_gallery">Gallery</string>
 </resources>

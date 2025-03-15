@@ -86,7 +86,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
                             }
                         }
                     } else {
-                        Snackbar.make(personalInfo, R.string.warning_no_date_selected, Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(personalInfo, R.string.error_no_date_selected, Snackbar.LENGTH_LONG).show();
                     }
                 }
         );
@@ -160,7 +160,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             } else {
-                Snackbar.make(personalInfo, getString(R.string.warning_no_browser_message), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(personalInfo, getString(R.string.error_no_browser_message), Snackbar.LENGTH_LONG).show();
             }
             return true;
         }
@@ -174,7 +174,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
             if (shareIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(chooser);
             } else {
-                Snackbar.make(personalInfo, getString(R.string.warning_no_share_app), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(personalInfo, getString(R.string.error_no_share_app), Snackbar.LENGTH_LONG).show();
             }
             return true;
         }

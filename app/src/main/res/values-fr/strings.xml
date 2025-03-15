@@ -7,6 +7,9 @@
     <string name="hint_et_name">Prénom</string>
     <string name="hint_tv_birth_place">Lieu de naissance</string>
     <string name="hint_birth_date">Veuillez entrer votre date de naissance:</string>
+    <string name="hint_marker_name_input">Veuillez entrer le nom du marqueur</string>
+    <string name="hint_marker_name">Nom du marqueur</string>
+    <string name="hint_marker_position">Position du marqueur</string>
 
     <string name="btn_submit">soumettez</string>
     <string name="btn_close">Fermer</string>
@@ -22,6 +25,7 @@
     <string name="btn_confirm">Confirmer</string>
     <string name="btn_dial_phone">Composer un numéro de téléphone</string>
     <string name="btn_next">Suivant</string>
+    <string name="btn_add_image">Ajouter une image</string>
 
     <string name="title_phone_number">Numéro de téléphone</string>
     <string name="title_birth_place">Lieu de naissance</string>
@@ -30,16 +34,20 @@
     <string name="title_birth_date">Date de naissance</string>
     <string name="title_my_birth_city">Ma ville de naissance est :</string>
 
-    <string name="warning_no_share_app">Aucune application trouvée pour partager vos informations.</string>
-    <string name="warning_no_browser_message">Aucun navigateur disponible</string>
-    <string name="warning_no_date_selected">Aucune date sélectionnée</string>
-    <string name="warning_no_user_data">Aucune donnée utilisateur disponible</string>
+    <string name="error_no_share_app">Aucune application trouvée pour partager vos informations.</string>
+    <string name="error_no_browser_message">Aucun navigateur disponible</string>
+    <string name="error_no_date_selected">Aucune date sélectionnée</string>
+    <string name="error_no_user_data">Aucune donnée utilisateur disponible</string>
+    <string name="error_no_camera">Aucune caméra disponible</string>
+    <string name="error_image_load_failed">Échec du chargement de l\'image</string>
 
     <string name="msg_select_date">Sélectionner une date</string>
     <string name="msg_show">Montrer</string>
     <string name="msg_raise_a_question">Veuillez poser une question:</string>
     <string name="msg_input_answer">Veuillez entrer la réponse:</string>
     <string name="msg_share_via">Partager via</string>
+    <string name="msg_marker_image">Veuillez ajouter une image pour le marqueur</string>
+    <string name="msg_choose_image_source">Choisir la source de l\'image</string>
 
     <string name="map_type_normal">Normal</string>
     <string name="map_type_hybrid">Hybride</string>
@@ -47,5 +55,7 @@
 
     <string name="word_latitude">Latitude</string>
     <string name="word_longitude">Longitude</string>
+    <string name="word_camera">Caméra</string>
+    <string name="word_gallery">Galerie</string>
 
 </resources>
