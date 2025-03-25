@@ -23,9 +23,11 @@ import androidx.core.view.MenuHost;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import fr.imt_atlantique.myfirstapplication.PersonalInfoViewModel;
 import fr.imt_atlantique.myfirstapplication.R;
 
 public class InputInformationFragment extends Fragment {
@@ -34,6 +36,9 @@ public class InputInformationFragment extends Fragment {
     private Spinner spBirthPlace;
 
     private String phoneNumbers = "";
+
+    private PersonalInfoViewModel viewModel;
+
     private static final int STATIC_CHILD_COUNT = 7;
 
     private OnPersonalInfoSubmittedListener listener;
@@ -58,6 +63,8 @@ public class InputInformationFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_input_information, container, false);
+
+        viewModel = new ViewModelProvider(requireActivity()).get(PersonalInfoViewModel.class);
 
         MenuHost menuHost = requireActivity();
         menuHost.addMenuProvider(new MenuProvider() {
@@ -134,13 +141,40 @@ public class InputInformationFragment extends Fragment {
             }
         }
 
+        if (!viewModel.firstName.isEmpty()) {
+            etFirstName.setText(viewModel.firstName);
+        }
+        if (!viewModel.lastName.isEmpty()) {
+            etLastName.setText(viewModel.lastName);
+        }
+
+        if (!viewModel.phoneNumbers.isEmpty()) {
+            int totalChildren = inputLayout.getChildCount();
+            for (int i = STATIC_CHILD_COUNT; i < totalChildren; i++) {
+                inputLayout.removeViewAt(STATIC_CHILD_COUNT);
+            }
+            for (String phone : viewModel.phoneNumbers) {
+                addPhoneWithNumber(phone);
+            }
+        }
+
         btnNext.setOnClickListener(v -> {
             if(listener != null) {
                 String phoneNumbers = collectPhoneNumbers();
+                viewModel.firstName = etFirstName.getText().toString();
+                viewModel.lastName = etLastName.getText().toString();
+                viewModel.birthPlace = spBirthPlace.getSelectedItem().toString();
+                viewModel.phoneNumbers.clear();
+                String[] phones = phoneNumbers.split("\\|\\|");
+                for (String phone : phones) {
+                    if (!phone.trim().isEmpty()) {
+                        viewModel.phoneNumbers.add(phone.trim());
+                    }
+                }
                 listener.onPersonalInfoSubmitted(
-                        etFirstName.getText().toString(),
-                        etLastName.getText().toString(),
-                        spBirthPlace.getSelectedItem().toString(),
+                        viewModel.firstName,
+                        viewModel.lastName,
+                        viewModel.birthPlace,
                         phoneNumbers
                 );
             }

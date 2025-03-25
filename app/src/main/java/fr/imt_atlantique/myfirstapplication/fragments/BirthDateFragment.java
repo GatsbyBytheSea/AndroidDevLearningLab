@@ -11,9 +11,11 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.Calendar;
 
+import fr.imt_atlantique.myfirstapplication.PersonalInfoViewModel;
 import fr.imt_atlantique.myfirstapplication.R;
 
 public class BirthDateFragment extends Fragment {
@@ -21,6 +23,7 @@ public class BirthDateFragment extends Fragment {
 
     private Button btnSelectBirthDate;
     private String selectedBirthDate = "";
+    private PersonalInfoViewModel viewModel;
 
     private OnBirthDateSubmittedListener submitListener;
     private OnBackButtonPressedListener backListener;
@@ -54,18 +57,26 @@ public class BirthDateFragment extends Fragment {
         btnSelectBirthDate = view.findViewById(R.id.select_birth_date);
         btnSelectBirthDate.setOnClickListener(v-> showDatePicker());
 
+        viewModel = new ViewModelProvider(requireActivity()).get(PersonalInfoViewModel.class);
+
         if (savedInstanceState != null) {
             selectedBirthDate = savedInstanceState.getString("selectedBirthDate", "");
-            if (!selectedBirthDate.isEmpty()) {
-                btnSelectBirthDate.setText(selectedBirthDate);
-            }
+        }
+        if (!viewModel.birthDate.isEmpty()) {
+            selectedBirthDate = viewModel.birthDate;
+        }
+
+        if (!selectedBirthDate.isEmpty()) {
+            btnSelectBirthDate.setText(selectedBirthDate);
         }
 
         btnDisplay.setOnClickListener(v -> {
+            viewModel.birthDate = selectedBirthDate;
             if (getActivity() instanceof OnBirthDateSubmittedListener) {
                 submitListener.onBirthDateSubmitted(selectedBirthDate);
             }
         });
+
         Button btnBack = view.findViewById(R.id.back_button_on_birthdate_page);
         btnBack.setOnClickListener(v -> {
             if (getActivity() instanceof OnBackButtonPressedListener) {

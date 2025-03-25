@@ -18,6 +18,9 @@ public class PersonalInfoFragmentActivity extends AppCompatActivity implements I
         DisplayInfoFragment.OnBackButtonPressedListener,
         BirthDateFragment.OnBackButtonPressedListener {
 
+    InputInformationFragment inputInformationFragment = new InputInformationFragment();
+    BirthDateFragment birthDateFragment = new BirthDateFragment();
+
     private String firstName;
     private String lastName;
     private String birthPlace;
@@ -35,7 +38,7 @@ public class PersonalInfoFragmentActivity extends AppCompatActivity implements I
 
         if(savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, new InputInformationFragment())
+                    .add(R.id.fragment_container, inputInformationFragment)
                     .addToBackStack(null)
                     .commit();
         }
@@ -48,7 +51,7 @@ public class PersonalInfoFragmentActivity extends AppCompatActivity implements I
         this.birthPlace = birthPlace;
         this.phone = phoneNumbers;
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new BirthDateFragment())
+                .replace(R.id.fragment_container, birthDateFragment)
                 .addToBackStack(null)
                 .commit();
     }
