@@ -20,7 +20,6 @@ public class BirthDateFragment extends Fragment {
 
 
     private Button btnSelectBirthDate;
-    private Button btnBack;
     private String selectedBirthDate = "";
 
     private OnBirthDateSubmittedListener submitListener;
@@ -53,15 +52,21 @@ public class BirthDateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_birth_date, container, false);
         Button btnDisplay = view.findViewById(R.id.next_button);
         btnSelectBirthDate = view.findViewById(R.id.select_birth_date);
-        btnSelectBirthDate.setOnClickListener(v->{
-            showDatePicker();
-        });
+        btnSelectBirthDate.setOnClickListener(v-> showDatePicker());
+
+        if (savedInstanceState != null) {
+            selectedBirthDate = savedInstanceState.getString("selectedBirthDate", "");
+            if (!selectedBirthDate.isEmpty()) {
+                btnSelectBirthDate.setText(selectedBirthDate);
+            }
+        }
+
         btnDisplay.setOnClickListener(v -> {
             if (getActivity() instanceof OnBirthDateSubmittedListener) {
                 submitListener.onBirthDateSubmitted(selectedBirthDate);
             }
         });
-        btnBack = view.findViewById(R.id.back_button_on_birthdate_page);
+        Button btnBack = view.findViewById(R.id.back_button_on_birthdate_page);
         btnBack.setOnClickListener(v -> {
             if (getActivity() instanceof OnBackButtonPressedListener) {
                 backListener.onBackButtonPressed();
@@ -82,5 +87,11 @@ public class BirthDateFragment extends Fragment {
                     btnSelectBirthDate.setText(selectedBirthDate);
                 }, year, month, day);
         datePickerDialog.show();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("selectedBirthDate", selectedBirthDate);
     }
 }

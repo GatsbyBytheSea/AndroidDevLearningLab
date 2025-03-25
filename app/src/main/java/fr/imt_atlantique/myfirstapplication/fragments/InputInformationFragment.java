@@ -115,9 +115,28 @@ public class InputInformationFragment extends Fragment {
         spBirthPlace = view.findViewById(R.id.select_birth_place);
         Button btnNext = view.findViewById(R.id.next_button);
 
+        if (savedInstanceState != null) {
+            etFirstName.setText(savedInstanceState.getString("firstName", ""));
+            etLastName.setText(savedInstanceState.getString("lastName", ""));
+            spBirthPlace.setSelection(savedInstanceState.getInt("birthPlacePosition", 0));
+            String savedPhones = savedInstanceState.getString("phoneNumbers", "");
+            if (!savedPhones.isEmpty()) {
+                int totalChildren = inputLayout.getChildCount();
+                for (int i = STATIC_CHILD_COUNT; i < totalChildren; i++) {
+                    inputLayout.removeViewAt(STATIC_CHILD_COUNT);
+                }
+                String[] phones = savedPhones.split("\\|\\|");
+                for (String phone : phones) {
+                    if (!phone.trim().isEmpty()) {
+                        addPhoneWithNumber(phone.trim());
+                    }
+                }
+            }
+        }
+
         btnNext.setOnClickListener(v -> {
             if(listener != null) {
-                phoneNumbers = collectPhoneNumbers();
+                String phoneNumbers = collectPhoneNumbers();
                 listener.onPersonalInfoSubmitted(
                         etFirstName.getText().toString(),
                         etLastName.getText().toString(),
@@ -128,13 +147,15 @@ public class InputInformationFragment extends Fragment {
         });
 
         Button addPhoneButton = view.findViewById(R.id.add_phone_button);
-        addPhoneButton.setOnClickListener(v -> {
-            addPhone();
-        });
+        addPhoneButton.setOnClickListener(v -> addPhone());
         return view;
     }
 
     private void addPhone() {
+        addPhoneWithNumber("");
+    }
+
+    private void addPhoneWithNumber(String phone) {
         LinearLayout phoneInfoContainer = new LinearLayout(getContext());
         phoneInfoContainer.setOrientation(LinearLayout.HORIZONTAL);
         LinearLayout.LayoutParams containerParams = new LinearLayout.LayoutParams(
@@ -150,10 +171,11 @@ public class InputInformationFragment extends Fragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
         etPhone.setLayoutParams(params);
         etPhone.setInputType(InputType.TYPE_CLASS_PHONE);
-
+        etPhone.setText(phone);
 
         Button removePhoneButton = new Button(getContext());
-        LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         removePhoneButton.setLayoutParams(buttonParams);
         removePhoneButton.setText(R.string.btn_delete);
 
@@ -162,10 +184,7 @@ public class InputInformationFragment extends Fragment {
         phoneInfoContainer.addView(removePhoneButton);
         inputLayout.addView(phoneInfoContainer);
 
-        removePhoneButton.setOnClickListener(v -> {
-            phoneNumbers = phoneNumbers.replace(etPhone.getText().toString() + "\n", "");
-            inputLayout.removeView(phoneInfoContainer);
-        });
+        removePhoneButton.setOnClickListener(v -> inputLayout.removeView(phoneInfoContainer));
     }
 
     private String collectPhoneNumbers() {
@@ -183,5 +202,14 @@ public class InputInformationFragment extends Fragment {
             }
         }
         return sb.toString();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("firstName", etFirstName.getText().toString());
+        outState.putString("lastName", etLastName.getText().toString());
+        outState.putInt("birthPlacePosition", spBirthPlace.getSelectedItemPosition());
+        outState.putString("phoneNumbers", collectPhoneNumbers());
     }
 }
