@@ -43,18 +43,6 @@ Through a set of modular projects and exercises, I explored all the key aspects 
 - ✅ Integrating GPS/geolocation and capturing media from device hardware.
 - ✅ Using Android’s Maps and location APIs for cartographic features.
 
-## 📁 Repository Structure
-
-```
-.
-├── module-1-android-basics/       # Activities, UI, Intents
-├── module-2-persistence/          # File I/O, SharedPreferences
-├── module-3-sensors-maps/         # Location services, sensors
-├── screenshots/                   # App UI snapshots
-├── build.gradle
-└── README.md
-```
-
 ## 📌 Note
 
 This repository is primarily educational and serves as a personal learning log. All code was written during my coursework and is not intended for production use.
