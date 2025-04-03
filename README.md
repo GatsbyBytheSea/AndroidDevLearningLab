@@ -55,10 +55,6 @@ Through a set of modular projects and exercises, I explored all the key aspects 
 └── README.md
 ```
 
-## 📷 Screenshots
-
-> *(Optional – you can add some screenshots here if you'd like)*
-
 ## 📌 Note
 
 This repository is primarily educational and serves as a personal learning log. All code was written during my coursework and is not intended for production use.
